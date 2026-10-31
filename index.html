@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidedrop · Mac ↔ Android, over your own wifi</title>
+<meta name="description" content="Sidedrop is AirDrop between a Mac and an Android phone, over your own wifi. No cloud, no account. Leave your email to get one message when the proper version ships.">
+<meta property="og:title" content="Sidedrop · Mac ↔ Android, over your own wifi">
+<meta property="og:description" content="AirDrop between a Mac and an Android phone. No cloud, no account. One email when the proper version ships.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%233b82f6' stroke-width='5'/%3E%3Ccircle cx='42' cy='22' r='8' fill='%233b82f6'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#0b0d12; --fg:#f4f5f7; --muted:#9aa3b2; --accent:#3b82f6; --accent-2:#60a5fa; --card:#12151c; --line:#232834; --ok:#22c55e; }
+  @media (prefers-color-scheme: light) { :root { --bg:#f5f6f8; --fg:#121519; --muted:#5a6473; --card:#ffffff; --line:#e4e7ec; } }
+  * { box-sizing:border-box; }
+  html,body { margin:0; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Inter, sans-serif; -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:32px 16px; }
+  .wrap { width:100%; max-width:520px; }
+  .brand { display:flex; align-items:center; gap:12px; margin-bottom:28px; }
+  .radar { width:44px; height:44px; border-radius:50%; border:2.5px solid var(--accent); position:relative; flex:none; }
+  .radar::before { content:""; position:absolute; inset:9px; border-radius:50%; border:1.5px solid var(--accent); opacity:.35; }
+  .radar::after { content:""; position:absolute; width:12px; height:12px; border-radius:50%; background:var(--accent-2); top:7px; right:6px; box-shadow:0 0 0 5px rgba(59,130,246,.18); animation:pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { box-shadow:0 0 0 5px rgba(59,130,246,.18);} 50% { box-shadow:0 0 0 10px rgba(59,130,246,.06);} }
+  .brand b { font-size:20px; letter-spacing:-.01em; }
+  .brand span { display:block; font-size:13px; color:var(--muted); font-weight:400; }
+  h1 { font-size:30px; line-height:1.15; letter-spacing:-.02em; margin:0 0 12px; }
+  h1 em { font-style:normal; color:var(--accent-2); }
+  .lead { color:var(--muted); margin:0 0 22px; font-size:17px; }
+  ul { list-style:none; padding:0; margin:0 0 26px; display:grid; gap:10px; }
+  li { display:flex; gap:10px; align-items:flex-start; }
+  li svg { flex:none; margin-top:4px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px; }
+  .card h2 { font-size:17px; margin:0 0 6px; }
+  .card p { margin:0 0 14px; color:var(--muted); font-size:15px; }
+  form { display:flex; gap:8px; }
+  input[type=email] { flex:1; min-width:0; padding:13px 14px; border-radius:11px; border:1px solid var(--line); background:var(--bg); color:var(--fg); font-size:16px; outline:none; }
+  input[type=email]:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(59,130,246,.2); }
+  button { padding:13px 18px; border:0; border-radius:11px; background:var(--accent); color:#fff; font-size:16px; font-weight:600; cursor:pointer; white-space:nowrap; }
+  button:hover { background:#2f6fe0; }
+  button:disabled { opacity:.6; cursor:default; }
+  .ok { display:none; align-items:center; gap:10px; color:var(--fg); font-weight:500; }
+  .ok svg { flex:none; }
+  .err { display:none; color:#f87171; font-size:14px; margin-top:10px; }
+  footer { margin-top:22px; color:var(--muted); font-size:13px; line-height:1.5; }
+  footer a { color:inherit; }
+  @media (max-width:420px) { h1 { font-size:26px; } form { flex-direction:column; } button { width:100%; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand">
+    <div class="radar" aria-hidden="true"></div>
+    <div><b>Sidedrop</b><span>Mac ↔ Android, on your own wifi</span></div>
+  </div>
+
+  <h1>AirDrop for people who use a Mac <em>and</em> an Android phone.</h1>
+  <p class="lead">Share from the phone, it's on the Mac. Drop on the Mac, it's on the phone. Nothing leaves your home network.</p>
+
+  <ul>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>A menu-bar app on the Mac. Your phone shows up as a blue dot when it's nearby.</span></li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>"Sidedrop" in the Android Share menu. One tap, no app to install.</span></li>
+    <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>No account, no cloud, no Google servers. Files go straight from one device to the other.</span></li>
+  </ul>
+
+  <section class="card">
+    <h2>Get one email when the proper version ships</h2>
+    <p>Pairing, no manual certificate, starts at login. No newsletter, no follow-ups: one message, then silence.</p>
+    <form id="f" action="https://formspree.io/f/xgaaljzd" method="POST" novalidate>
+      <input type="email" name="email" placeholder="you@example.com" required autocomplete="email" inputmode="email" aria-label="Email address">
+      <input type="hidden" name="_subject" value="Sidedrop: new email">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="err" id="err">Something went wrong. Please try again in a minute.</p>
+    <p class="ok" id="ok"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 6-6"/></svg>Got it. One email when it's ready. Thank you.</p>
+  </section>
+
+  <footer>Built in Rome by a window cleaner, with Claude Code. Your address is stored on Formspree and used for this one message only.</footer>
+</main>
+<script>
+  const f=document.getElementById('f'), ok=document.getElementById('ok'), err=document.getElementById('err');
+  f.addEventListener('submit', async e=>{
+    e.preventDefault();
+    const email=f.email.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ f.email.focus(); return; }
+    const b=f.querySelector('button'); b.disabled=true; err.style.display='none';
+    try{
+      const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
+      if(r.ok){ f.style.display='none'; ok.style.display='flex'; }
+      else { b.disabled=false; err.style.display='block'; }
+    }catch(_){ b.disabled=false; err.style.display='block'; }
+  });
+</script>
+</body>
+</html>
